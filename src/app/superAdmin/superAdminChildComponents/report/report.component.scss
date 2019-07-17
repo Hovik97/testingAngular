@@ -1,0 +1,32 @@
+.reports-page {
+  .reports-main {
+    padding: 0 17px;
+    .h2_text{
+      font-size: 2.2rem;
+      font-family: initial;
+      margin: 10px 0;
+      color: #1c587a;
+      width: max-content;
+    }
+    ul {
+      width: 100%;
+      .section-reports {
+        list-style-type: none;
+        border: 1px solid #a58686;
+        border-radius: 3px;
+        margin: 5px 0;
+      }
+    }
+    .pages {
+      li {
+        list-style-type: none;
+        display: inline-block;
+        cursor: pointer;
+        .page-color{
+          background-color: darkgray;
+          color: white;
+        }
+      }
+    }
+  }
+}

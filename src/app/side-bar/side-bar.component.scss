@@ -1,0 +1,30 @@
+nav.nav-sidebar {
+  li {
+    padding: 7px 0 11px 15px;
+    border: 2px solid #16303e;
+    border-radius: 6px;
+    width: calc(100% - 4px);
+    margin: 1px auto;
+    cursor: pointer;
+    color: white;
+    overflow: hidden;
+    outline: none;
+    font-size: 22px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    .icon-sidebar {
+      width: 20px;
+      margin-right: 17px;
+    }
+    span {
+      position: fixed;
+    }
+  }
+  li:hover {
+    background-color: #1c5372;
+  }
+}
+.active{
+  background-color: #1c5372;
+}

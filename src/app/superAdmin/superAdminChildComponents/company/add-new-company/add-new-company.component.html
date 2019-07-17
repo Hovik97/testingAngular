@@ -1,0 +1,59 @@
+<div class="add-company-page">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Fill in company form inputs</h3>
+          <form [formGroup]="createCompany">
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" formControlName="companyName" class="form-control" [ngClass]="{ 'is-invalid': submitted && c.companyName.errors }" />
+              <div *ngIf="submitted && c.companyName.errors" class="invalid-feedback">
+                <div *ngIf="c.companyName.errors.required">Company Name is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company Address</label>
+              <input type="text" formControlName="companyAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && c.companyAddress.errors }" />
+              <div *ngIf="submitted && c.companyAddress.errors" class="invalid-feedback">
+                <div *ngIf="c.companyAddress.errors.required">Company Address is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company Email</label>
+              <input type="email" formControlName="companyEmail" class="form-control" [ngClass]="{ 'is-invalid': submitted && c.companyEmail.errors }" />
+              <div *ngIf="submitted && c.companyEmail.errors" class="invalid-feedback">
+                <div *ngIf="c.companyEmail.errors.required">Company Email is required</div>
+                <div *ngIf="c.companyEmail.errors.email">Company Email must be a valid email address</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company Tax Number</label>
+              <input type="text" formControlName="companyTaxNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && c.companyTaxNumber.errors }" />
+              <div *ngIf="submitted && c.companyTaxNumber.errors" class="invalid-feedback">
+                <div *ngIf="c.companyTaxNumber.errors.required">Company Tax Number is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company Phone Number</label>
+              <input type="text" formControlName="companyPhoneNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && c.companyPhoneNumber.errors }" />
+              <div *ngIf="submitted && c.companyPhoneNumber.errors" class="invalid-feedback">
+                <div *ngIf="c.companyPhoneNumber.errors.required">Company Phone Number is required</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Company Type</label>
+              <input type="text" formControlName="companyType" class="form-control" [ngClass]="{ 'is-invalid': submitted && c.companyType.errors }" />
+              <div *ngIf="submitted && c.companyType.errors" class="invalid-feedback">
+                <div *ngIf="c.companyType.errors.required">Company Type is required</div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <app-reg-form (formValue)="regCompany($event)"></app-reg-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<header>
+  <mat-toolbar>
+    <div class="row">
+      <div class="col-sm-6 reporter">
+        <h1 [routerLink]="'/' + (global.authenticationUser?.roles ? global.authenticationUser?.roles : 'login')">Reporter</h1>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-12 d-flex justify-content-end align-items-center" *ngIf="global.authenticationUser">
+            <p class="name-user">
+              {{global.authenticationUser?.name + ' ' + global.authenticationUser?.surname}}
+            </p>
+            <div class="btn-group drop-down-settings">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Small button
+              </button>
+              <div class="dropdown-menu">
+                <button [routerLink]="'/' + global.authenticationUser.roles + '/profile'" class="dropdown-item" type="button">Profile</button>
+                <button class="dropdown-item" type="button" (click)="logout()">Log Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
+</header>

@@ -1,0 +1,73 @@
+<app-global-loader *ngIf="global.loader"></app-global-loader>
+<div class="main-add-reports">
+  <div *ngIf="isTrue">
+    <p class="text-upload">Yntreq bolor filery</p>
+    <div class="uploads">
+      <label for="allfiles" class="btn upload-all-files"><i class="fas fa-plus-square"></i></label>
+      <input id="allfiles" (change)="allFiles($event)" multiple name="file[]" type="file">
+    </div>
+    <p *ngIf="allFile.length > 0" class="text-upload">Duq yntrel eq {{allFile.length}} file sexmeq hastatel</p>
+    <p class="chacked-text"><button class="btn btn-success btn-sm" *ngIf="allFile.length > 0" (click)="addReportsSup()">Hastatel</button></p>
+  </div>
+  <p class="error-text" *ngIf="arrDataRep.falseArr.length > 0">duq nerbernel eq kisat filer kargavoreq kam jnjeq !</p>
+  <table class="table table-sm" *ngIf="arrDataRep.trueArr.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Pdf</th>
+        <th scope="col">Exel</th>
+        <th scope="col">Checked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let files of arrDataRep.trueArr; let i = index">
+        <td>{{nameFile(files)}}</td>
+        <td>{{files[0].filename}}</td>
+        <td>{{files[1].filename}}</td>
+        <td><i class="fas fa-check chech-file"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-sm" *ngIf="arrDataRep.falseArr.length > 0">
+    <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Pdf</th>
+      <th scope="col">Exel</th>
+      <th scope="col">Unchecked</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let files of arrDataRep.falseArr; let i = index">
+      <td>
+        {{nameFile(files)}}
+      </td>
+      <td>
+        <span *ngIf="files[0]">{{files[0].filename}}</span>
+        <span *ngIf="!files[0]">
+          <label for="file" class="btn upload-files">Upload Pdf</label>
+          <input id="file" (change)="uploadNewFiles($event, i, 'pdf')" class="choes_file" type="file">
+        </span>
+      </td>
+      <td>
+        <span *ngIf="files[1]">{{files[1].filename}}</span>
+        <span *ngIf="!files[1]">
+          <label for="files" class="btn upload-files">Upload Exel</label>
+          <input id="files" (change)="uploadNewFiles($event, i, 'exel')" class="choes_file" type="file">
+        </span>
+      </td>
+      <td>
+        <button *ngIf="files[0] && files[1]" class="btn btn-success btn-sm" (click)="changeFileData(i)">
+          <i class="fas fa-redo"></i>
+        </button>
+        <button *ngIf="!files[0] || !files[1]" class="btn btn-danger btn-sm" (click)="deleteFiles(i)">
+          <i class="fas fa-trash-alt delete-file"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-success btn-sm" *ngIf="(arrDataRep.falseArr.length == 0 && arrDataRep.trueArr.length > 0)" (click)="next()">
+    Continue
+  </button>
+</div>

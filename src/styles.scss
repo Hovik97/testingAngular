@@ -1,0 +1,80 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@mixin padding-position {
+  padding-top: 60px;
+  transition: 0.5s;
+}
+.side-bar {
+  width: 20%;
+  height: 100vh;
+  background-color: #0c2c3ec7;
+  position: fixed;
+  z-index: 40;
+  top: 0;
+  @include padding-position;
+  span {
+    position: absolute;
+    top: 70px;
+    width: 17px;
+    height: 35px;
+    border-radius: 0 5px 5px 0;
+    background-color: #123346;
+    left: 100%;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    .arrow-sidebar {
+      color: white;
+      font-size: 19px;
+    }
+  }
+}
+.main-part {
+  display: flex;
+  position: relative;
+  margin-left: 20%;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.position-sidebar {
+  width: 54px;
+  transition: 0.5s;
+}
+.position-main {
+  margin-left: 54px;
+  transition: 0.5s;
+}
+.add-button-position {
+  position: absolute;
+  z-index: 5;
+  right: 2rem;
+  top: 70px;
+}
+
+.upload-files{
+  border: 2px solid lightsteelblue;
+  cursor: pointer;
+  margin: 0;
+  padding: 3px 10px;
+  :hover{
+    background-color: cornsilk;
+  }
+}
+.checked{
+  color: green;
+  margin-left: 7px;
+}
+.choes_file{
+  display: none;
+}
+button {
+  padding: 2px 7px;
+  margin-left: 5px;
+  background-color: darkcyan;
+  font-family: initial;
+}

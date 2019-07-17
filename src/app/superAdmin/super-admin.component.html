@@ -1,0 +1,14 @@
+<div class="side-bar" [ngClass]="{'position-sidebar': positionPage}">
+  <app-side-bar [sidebarMenu]="sidebarMenu"></app-side-bar>
+  <span (click)="changePosition()">
+    <div *ngIf="!positionPage">
+      <i class="fas fa-angle-left arrow-sidebar"></i>
+    </div>
+    <div *ngIf="positionPage">
+      <i class="fas fa-angle-right arrow-sidebar"></i>
+    </div>
+  </span>
+</div>
+<div class="main-part" [ngClass]="{'position-main': positionPage}">
+  <router-outlet></router-outlet>
+</div>

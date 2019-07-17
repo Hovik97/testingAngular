@@ -1,0 +1,37 @@
+<app-global-loader *ngIf="global.loader"></app-global-loader>
+<div class="container-fluid users-page">
+  <div class="row users-main">
+    <div class="col-sm-12">
+      <h2 class="h2_text">All Users</h2>
+    </div>
+    <div class="col-sm-12">
+      <div class="row">
+        <ul>
+          <li class="section-users col-sm-12" *ngFor="let user of allUsers">
+            <div class="row">
+              <div class="col-sm-6">User Name: <span>{{user.name}}</span></div>
+              <div class="col-sm-6">User Surname: <span>{{user.surname}}</span></div>
+              <div class="col-sm-6">User Email: <span>{{user.email}}</span></div>
+              <div class="col-sm-6">User Role: <span>{{user.roles}}</span></div>
+              <div class="col-sm-6">User Permision Create: <span>{{user.permissions.create}}</span></div>
+              <div class="col-sm-6">User Permision Edit: <span>{{user.permissions.edit}}</span></div>
+              <div class="col-sm-6">User Permision View: <span>{{user.permissions.view}}</span></div>
+              <div class="col-sm-6" *ngIf="user.createdDateUser">User Created Date: <span>{{user.createdDateUser |  date: 'dd-MM-yyyy'}}</span></div>
+            </div>
+          </li>
+        </ul>
+        <div class="col-sm-12 d-flex justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pages">
+              <li class="page-item"><a class="page-link" *ngIf="userPageLength > 1" (click)="changePageUser('-1')"><<<</a></li>
+              <li class="page-item" *ngFor="let page of arrayOne(userPageLength); let i = index">
+                <a class="page-link" [ngClass]="{'page-color': (userPageLength == (i + 1))}" (click)="changePageUser(i+1)">{{i + 1}}</a>
+              </li>
+              <li class="page-item"><a class="page-link" *ngIf="usersArrlength" (click)="changePageUser('+1')">>>></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

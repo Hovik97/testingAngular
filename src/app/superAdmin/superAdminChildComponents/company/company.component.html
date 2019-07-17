@@ -1,0 +1,38 @@
+<app-global-loader *ngIf="global.loader"></app-global-loader>
+<button type="button" class="btn btn-outline-success btn-sm add-button-position" routerLink="/superAdmin/addCompany">Add company</button>
+<div class="container-fluid company-page">
+  <div class="row copany-main">
+    <div class="col-sm-12">
+      <h2 class="h2_text">Companies</h2>
+    </div>
+    <div class="col-sm-12">
+      <div class="row">
+        <ul>
+          <li class="section-company col-sm-12" *ngFor="let comp of companies">
+            <div class="row">
+              <div class="col-sm-6">Company Name: <span>{{comp.companyName}}</span></div>
+              <div class="col-sm-6">Company Address: <span>{{comp.companyAddress}}</span></div>
+              <div class="col-sm-6">Company Tax Number: <span>{{comp.companyTaxNumber}}</span></div>
+              <div class="col-sm-6">Company Phone Number: <span>{{comp.companyPhoneNumber}}</span></div>
+              <div class="col-sm-6">Company Email: <span>{{comp.companyEmail}}</span></div>
+              <div class="col-sm-6">Company Type: <span>{{comp.companyType}}</span></div>
+              <div class="col-sm-6" *ngIf="comp.companyIP">Company IP: <span>{{comp.companyIP}}</span></div>
+              <div class="col-sm-6" *ngIf="comp.createdDateComp">Company Created Date: <span>{{comp.createdDateComp |  date: 'dd-MM-yyyy'}}</span></div>
+            </div>
+          </li>
+        </ul>
+        <div class="col-sm-12 d-flex justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pages">
+              <li class="page-item"><a class="page-link" *ngIf="compPageLength > 1" (click)="changePageComp('-1')"><<<</a></li>
+              <li class="page-item" *ngFor="let page of arrayOne(compPageLength); let i = index">
+                <a class="page-link" [ngClass]="{'page-color': (compPageLength == (i + 1))}" (click)="changePageComp(i+1)">{{i + 1}}</a>
+              </li>
+              <li class="page-item"><a class="page-link" *ngIf="companyArrlength" (click)="changePageComp('+1')">>>></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

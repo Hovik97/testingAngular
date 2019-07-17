@@ -1,0 +1,8 @@
+<nav class="nav-sidebar">
+  <ul>
+    <li routerLink="/{{global.authenticationUser?.roles}}" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="fa fa-table icon-sidebar"></i> Dashboard</li>
+    <li [routerLink]="item.link" *ngFor="let item of sidebarMenu" routerLinkActive="active">
+      <i [class]="item.classIcon"></i> {{item.title}}
+    </li>
+  </ul>
+</nav>

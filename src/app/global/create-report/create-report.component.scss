@@ -1,0 +1,75 @@
+.main-add-reports {
+  width: 100%;
+  position: absolute;
+  padding: 0 18px;
+  .text-upload {
+    text-align: center;
+    font-size: 16px;
+    margin: 0;
+    color: #507cb5;
+  }
+  .chacked-text {
+    text-align: center;
+    margin: 20px 0;
+    button {
+      padding: 7px 30px;
+    }
+  }
+  .uploads {
+    text-align: center;
+    .upload-all-files {
+      border: 4px solid #507cb5;
+      cursor: pointer;
+      margin: 15px;
+      padding: 100px 300px;
+      font-size: 100px;
+      color: green;
+      background-color: #f3f3f3;
+
+    }
+    .upload-all-files:hover {
+      background-color: #ded7d7;
+    }
+    input {
+      display: none;
+    }
+  }
+  .delete-file {
+    color: white;
+  }
+  .error-text {
+    color: white;
+    margin: 2px 0;
+    padding: 5px;
+    background-color: #ff7a7a;
+    border: 3px solid #da0d21;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .err-file {
+    font-size: 15px;
+    color: #ef0f0f;
+  }
+  .chech-file {
+    font-size: 15px;
+    color: green;
+  }
+  .remove-row {
+    float: right;
+    font-size: 15px;
+    padding: 2px 7px;
+    box-sizing: content-box;
+    border: 1px solid rgba(0,0,0,.42);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .row-table {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+  .btn-style {
+    padding: 3px 5px;
+    margin: 10px;
+  }
+}

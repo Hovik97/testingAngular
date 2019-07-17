@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
+.status-error {
+  font-size: 10rem;
+  font-family: cursive;
+  font-style: italic;
+}
+.mat-action-page-not-found {
+  text-align: center;
+  font-size: 1.5rem;
+  a {
+    color: darkblue;
+    font-variant: all-small-caps;
+  }
+}

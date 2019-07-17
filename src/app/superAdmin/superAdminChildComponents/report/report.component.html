@@ -1,0 +1,32 @@
+<app-global-loader *ngIf="global.loader"></app-global-loader>
+<button type="button" class="btn btn-outline-success btn-sm add-button-position" routerLink="/superAdmin/addReport">Add report</button>
+<div class="container-fluid reports-page">
+  <div class="row reports-main">
+    <div class="col-sm-12">
+      <h2 class="h2_text">Reports Company</h2>
+    </div>
+    <div class="col-sm-12">
+      <div class="row">
+        <ul>
+          <li class="section-reports col-sm-12" *ngFor="let report of allReports">
+            <div class="row">
+              <div class="col-sm-6">Report Borrower Name: <span>{{report.borrowerName}}</span></div>
+              <div class="col-sm-6" *ngIf="report.createDate">Report Created Date: <span>{{report.createDate |  date: 'dd-MM-yyyy'}}</span></div>
+            </div>
+          </li>
+        </ul>
+        <div class="col-sm-12 d-flex justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pages">
+              <li class="page-item"><a class="page-link" *ngIf="reportPageLength > 1" (click)="changePageUser('-1')"><<<</a></li>
+              <li class="page-item" *ngFor="let page of arrayOne(reportPageLength); let i = index">
+                <a class="page-link" [ngClass]="{'page-color': (reportPageLength == (i + 1))}" (click)="changePageUser(i+1)">{{i + 1}}</a>
+              </li>
+              <li class="page-item"><a class="page-link" *ngIf="reportsArrlength" (click)="changePageUser('+1')">>>></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
